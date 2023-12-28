@@ -1,0 +1,50 @@
+﻿<Window x:Class="ChangerTextApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:ChangerTextApp.Properties" 
+        mc:Ignorable="d"
+        Title="Changer text" Height="200" Width="550">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Image x:Key="FileIcon" Source="Icons/file_text_icon.png"/>
+            <Image x:Key="DirectoryIcon" Source="Icons/folder_file_data_icon.png"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Path:"/>
+            <TextBox Grid.Column="1" Name="TbPath" MinWidth="200"/>
+            <Button Grid.Column="2" x:Name="BtnSelectFilePath" Width="25" Click="BtnSelectFilePath_Click" Content="{StaticResource FileIcon}"/>
+            <Button Grid.Column="3" x:Name="BtnSelectDirectoryPath"  Width="25" Click="BtnSelectDirectoryPath_Click" Content="{StaticResource DirectoryIcon}"/>
+        </Grid>
+        <GroupBox Header="Change:">
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Content="From:"/>
+                    <TextBox Grid.Column="1" Name="TbTextFromChange" VerticalAlignment="Center"/>
+                    <Label Grid.Column="2" Content="To:"/>
+                    <TextBox Grid.Column="3" Name="TbTextToChange"  VerticalAlignment="Center"/>
+                </Grid>
+                <CheckBox Name="CbFilesContent" Content="Content files"/>
+                <CheckBox Name="CbFilesName" Content="File names"/>
+                <CheckBox Name="CbDirectoryName" Content="Directory name"/>
+            </StackPanel>
+        </GroupBox>
+        <Button Name="BtnChange" Content="Start change" Click="BtnChange_Click"/>
+        <ProgressBar Name="ProgressBarChange" Height="10"/>
+    </StackPanel>
+</Window>
